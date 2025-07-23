@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>ビジネスサイボーグ 山本</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- ボット選択メニュー -->
+    <div class="bot-selection-screen" id="bot-selection-screen">
+        <div class="selection-header">
+            <h1>AIアシスタント選択</h1>
+            <p>利用したいボットを選択してください</p>
+        </div>
+        <div class="bot-options">
+            <div class="bot-option" data-bot-type="yamamoto">
+                <div class="bot-icon">
+                    <i class="fas fa-briefcase"></i>
+                </div>
+                <h3>山本ボット</h3>
+                <p>ビジネスやマーケティングの相談</p>
+            </div>
+            <div class="bot-option" data-bot-type="twitter">
+                <div class="bot-icon">
+                    <i class="fab fa-twitter"></i>
+                </div>
+                <h3>X投稿用</h3>
+                <p>Twitter/X用の投稿文作成</p>
+            </div>
+            <div class="bot-option" data-bot-type="facebook">
+                <div class="bot-icon">
+                    <i class="fab fa-facebook"></i>
+                </div>
+                <h3>Facebook投稿用</h3>
+                <p>Facebook用の投稿文作成</p>
+            </div>
+            <div class="bot-option" data-bot-type="profile">
+                <div class="bot-icon">
+                    <i class="fas fa-user-edit"></i>
+                </div>
+                <h3>プロフィール文作成用</h3>
+                <p>自己紹介文やプロフィール作成</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="mobile-chat-container" id="chat-container" style="display: none;">
+        <!-- モバイルヘッダー -->
+        <div class="mobile-header">
+            <button class="back-btn" onclick="showBotSelection()">
+                <i class="fas fa-arrow-left"></i>
+            </button>
+            <h1 class="chat-title" id="chat-title">ビジネスサイボーグ 山本</h1>
+            <div class="header-actions">
+                <button class="header-btn">
+                    <i class="fas fa-search"></i>
+                </button>
+                <button class="header-btn">
+                    <i class="fas fa-phone"></i>
+                </button>
+                <button class="header-btn" onclick="toggleSettings()">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- チャットメッセージエリア -->
+        <div class="chat-messages" id="chat-messages">
+            <!-- 初期メッセージは削除 - JavaScript側で管理 -->
+        </div>
+
+        <!-- 入力エリア -->
+        <div class="chat-input-area">
+            <div class="input-buttons">
+                <button class="input-btn">
+                    <i class="fas fa-plus"></i>
+                </button>
+                <button class="input-btn">
+                    <i class="fas fa-camera"></i>
+                </button>
+                <button class="input-btn">
+                    <i class="fas fa-image"></i>
+                </button>
+            </div>
+            <div class="input-container">
+                <input
+                    type="text"
+                    id="message-input"
+                    placeholder="メッセージを入力してください..."
+                />
+                <button class="send-button" id="send-button">
+                    <i class="fas fa-paper-plane"></i>
+                </button>
+            </div>
+            <button class="voice-btn">
+                <i class="fas fa-microphone"></i>
+            </button>
+        </div>
+    </div>
+
+    <!-- 設定パネル -->
+    <div class="settings-panel" id="settings-panel">
+        <div class="settings-header">
+            <h3>設定</h3>
+            <button onclick="toggleSettings()">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <div class="settings-content">
+            <div class="setting-item">
+                <p>このアプリはVercelにデプロイされており、APIキーはサーバー側で管理されています。</p>
+            </div>
+            <div class="setting-item">
+                <button class="clear-btn" onclick="clearChat()">
+                    <i class="fas fa-trash"></i>
+                    チャット履歴をクリア
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div class="overlay" id="overlay" onclick="toggleSettings()"></div>
+
+    <script src="script.js"></script>
+</body>
+</html>

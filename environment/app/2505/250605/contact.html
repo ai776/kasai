@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>お問い合わせ - 作品集</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav>
+        <div class="nav-container">
+            <a href="index.html" class="logo">Portfolio</a>
+            <a href="contact.html" class="nav-contact">お問い合わせ</a>
+        </div>
+    </nav>
+
+    <header>
+        <h1>お問い合わせ</h1>
+        <p>ご質問やご依頼がございましたら、お気軽にお問い合わせください</p>
+    </header>
+
+    <main class="contact-container">
+        <div class="contact-form-wrapper">
+            <form class="contact-form" id="contactForm">
+                <div class="form-group">
+                    <label for="name">お名前 <span class="required">*</span></label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">メールアドレス <span class="required">*</span></label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="company">会社名・組織名</label>
+                    <input type="text" id="company" name="company">
+                </div>
+
+                <div class="form-group">
+                    <label for="subject">件名 <span class="required">*</span></label>
+                    <select id="subject" name="subject" required>
+                        <option value="">選択してください</option>
+                        <option value="web-development">Webサイト制作について</option>
+                        <option value="ai-consultation">AI活用に関するご相談</option>
+                        <option value="collaboration">協業・提携について</option>
+                        <option value="other">その他</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="message">メッセージ <span class="required">*</span></label>
+                    <textarea id="message" name="message" rows="6" placeholder="ご質問やご要望をお聞かせください" required></textarea>
+                </div>
+
+                <button type="submit" class="submit-btn">送信する</button>
+            </form>
+        </div>
+
+        <div class="contact-info">
+            <div class="info-card">
+                <h3>📧 メールでのお問い合わせ</h3>
+                <p>contact@portfolio.com</p>
+                <small>24時間以内にご返信いたします</small>
+            </div>
+
+            <div class="info-card">
+                <h3>💼 ビジネスでのご相談</h3>
+                <p>プロジェクトの規模や期間に応じて<br>最適なご提案をいたします</p>
+            </div>
+
+            <div class="info-card">
+                <h3>🤖 AI関連のご相談</h3>
+                <p>最新のAI技術を活用した<br>ソリューションをご提案</p>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 作品集. All rights reserved.</p>
+        <p><a href="index.html" style="color: white; text-decoration: none;">← トップページに戻る</a></p>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // フォームデータを取得
+            const formData = new FormData(this);
+            const data = Object.fromEntries(formData);
+            
+            // 簡単なバリデーション
+            if (!data.name || !data.email || !data.subject || !data.message) {
+                alert('必須項目を入力してください。');
+                return;
+            }
+            
+            // 実際の送信処理（ここではアラートで代用）
+            alert('お問い合わせを受け付けました。\n24時間以内にご返信いたします。');
+            this.reset();
+        });
+    </script>
+</body>
+</html>
