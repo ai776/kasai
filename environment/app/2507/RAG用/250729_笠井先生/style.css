@@ -200,6 +200,28 @@ body {
     padding: 8px 16px;
 }
 
+#toggle-button {
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+#toggle-button.rotated {
+    transform: rotate(90deg);
+}
+
+#left-icons {
+    display: flex;
+    transition: all 0.3s ease;
+    overflow: hidden;
+    width: auto;
+}
+
+#left-icons.hidden {
+    width: 0;
+    opacity: 0;
+    margin-left: -10px;
+}
+
 .control-icon {
     color: #666;
     cursor: pointer;
