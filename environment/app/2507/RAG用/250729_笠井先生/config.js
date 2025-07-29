@@ -1,0 +1,3 @@
+const config = {
+    DIFY_API_KEY: 'app-aXWLn9is9OBrByweN47ANzQh'
+};

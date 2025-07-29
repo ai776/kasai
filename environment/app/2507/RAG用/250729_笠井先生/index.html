@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI アシスタント</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="phone-mockup">
+        <!-- ノッチ -->
+        <div class="notch"></div>
+        
+        <!-- スクリーン -->
+        <div class="screen">
+            <!-- ヘッダー -->
+            <div class="app-header">
+                <div class="header-left">
+                    <i class="material-icons">arrow_back</i>
+                </div>
+                <div class="header-title">
+                    <span>AI アシスタント</span>
+                </div>
+                <div class="header-right">
+                    <i class="material-icons">search</i>
+                    <i class="material-icons">call</i>
+                    <i class="material-icons">menu</i>
+                </div>
+            </div>
+            
+            <!-- メッセージエリア -->
+            <div class="messages-container" id="chatMessages">
+                <div class="message bot-message">
+                    <div class="bot-avatar">👨‍💼</div>
+                    <div class="message-bubble bot-bubble">
+                        <p>こんにちは！何かお手伝いできることはありますか？</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- フッター入力エリア -->
+            <div class="input-footer">
+                <div class="input-controls">
+                    <i class="material-icons control-icon">add</i>
+                    <i class="material-icons control-icon">camera_alt</i>
+                    <i class="material-icons control-icon">image</i>
+                    <input type="text" id="messageInput" placeholder="メッセージを入力してください..." />
+                    <i class="material-icons control-icon" id="sendButton">send</i>
+                    <i class="material-icons control-icon">mic</i>
+                </div>
+            </div>
+        </div>
+        
+        <!-- ホームインジケーター -->
+        <div class="home-indicator"></div>
+    </div>
+    <script src="config.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
