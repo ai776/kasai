@@ -88,7 +88,9 @@ class DifyChatBot {
                                         this.chatMessages.appendChild(currentMessageDiv);
                                     }
                                     currentMessageContent += data.answer;
-                                    currentMessageDiv.querySelector('.message-bubble p').textContent = currentMessageContent;
+                                    // 句読点で改行を追加
+                                    const formattedContent = currentMessageContent.replace(/([。！？])/g, '$1\n');
+                                    currentMessageDiv.querySelector('.message-bubble p').innerHTML = formattedContent.replace(/\n/g, '<br>');
                                     this.chatMessages.scrollTop = this.chatMessages.scrollHeight;
                                     break;
                                     
@@ -157,7 +159,9 @@ class DifyChatBot {
             messageDiv = this.createUserMessage(content);
         } else {
             messageDiv = this.createBotMessage();
-            messageDiv.querySelector('.message-bubble p').textContent = content;
+            // 句読点で改行を追加
+            const formattedContent = content.replace(/([。！？])/g, '$1\n');
+            messageDiv.querySelector('.message-bubble p').innerHTML = formattedContent.replace(/\n/g, '<br>');
         }
         
         this.chatMessages.appendChild(messageDiv);
