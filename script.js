@@ -1,7 +1,7 @@
 class DifyChatBot {
     constructor() {
         this.apiUrl = 'https://api.dify.ai/v1/chat-messages';
-        this.apiKey = config.DIFY_API_KEY;
+        this.apiKey = null;
         this.messageInput = document.getElementById('messageInput');
         this.sendButton = document.getElementById('sendButton');
         this.chatMessages = document.getElementById('chatMessages');
@@ -11,13 +11,38 @@ class DifyChatBot {
         this.init();
     }
 
-    init() {
+    async init() {
+        await this.loadConfig();
         this.sendButton.addEventListener('click', () => this.sendMessage());
         this.messageInput.addEventListener('keypress', (e) => {
             if (e.key === 'Enter') {
                 this.sendMessage();
             }
         });
+    }
+
+    async loadConfig() {
+        try {
+            // Vercelでは/api/configから、ローカルではconfig.jsから取得
+            if (window.location.hostname.includes('vercel.app') || window.location.hostname.includes('localhost')) {
+                const response = await fetch('/api/config');
+                if (response.ok) {
+                    const data = await response.json();
+                    this.apiKey = data.DIFY_API_KEY;
+                    return;
+                }
+            }
+            // フォールバック: config.jsから取得
+            if (typeof config !== 'undefined' && config.DIFY_API_KEY) {
+                this.apiKey = config.DIFY_API_KEY;
+            }
+        } catch (error) {
+            console.error('Config loading error:', error);
+            // フォールバック: config.jsから取得
+            if (typeof config !== 'undefined' && config.DIFY_API_KEY) {
+                this.apiKey = config.DIFY_API_KEY;
+            }
+        }
     }
 
     async sendMessage() {
