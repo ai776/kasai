@@ -99,7 +99,7 @@
 
         /* メッセージエリア */
         .messages-container {
-            flex: 1;
+            flex-grow: 1; /* ★残りの空間をすべて埋める */
             padding: 16px;
             overflow-y: auto;
             display: flex;
@@ -273,7 +273,9 @@
             }
 
             .screen {
-                height: 100dvh; /* .phone-mockupの高さに追従 */
+                height: 100%;
+                display: flex;
+                flex-direction: column;
             }
             
             .notch {
