@@ -212,6 +212,14 @@ class DifyChatBot {
     }
 }
 
+// 画面の高さを動的に設定する
+const setAppHeight = () => {
+    const doc = document.documentElement;
+    doc.style.setProperty('--app-height', `${window.innerHeight}px`);
+};
+window.addEventListener('resize', setAppHeight);
+setAppHeight(); // 初期ロード時にも実行
+
 document.addEventListener('DOMContentLoaded', () => {
     new DifyChatBot();
 });

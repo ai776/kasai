@@ -265,7 +265,7 @@
 
             .phone-mockup {
                 width: 100vw;
-                height: 100dvh; /* 動的なビューポート高に変更 */
+                height: var(--app-height, 100dvh); /* JSで高さを制御 */
                 border-radius: 0;
                 padding: 0;
                 box-shadow: none;
